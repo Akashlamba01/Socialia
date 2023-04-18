@@ -107,7 +107,11 @@ module.exports.createSession = function (req, res) {
   return res.redirect("/");
 };
 
-module.exports.signOut = function (req, res) {
-  // req.logout();
-  return res.redirect("/");
+module.exports.distroySession = function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    return res.redirect("/");
+  });
 };
