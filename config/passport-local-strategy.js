@@ -1,43 +1,59 @@
 const passport = require("passport");
 const User = require("../models/user");
 
-const LocalStraegy = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
-//authenticate using passport
 passport.use(
-  new LocalStraegy(
+  new LocalStrategy(
     {
-      userName: "email",
+      usernameField: "email",
     },
     function (email, password, done) {
-      User.findOne({ email: email })
+      User.findOne({ email })
         .then((user) => {
           if (!user || user.password != password) {
-            console.log("invalid email/password");
+            console.log("invalid username or password");
             return done(null, false);
           }
+
+          return done(null, user);
         })
-        .catch((err) => {
-          console.log("error in finding user --> passport");
-          return done(err);
+        .catch((error) => {
+          return done(error);
         });
     }
   )
 );
 
-// serializing the user to decide which key is to kept in the cookie
-LocalStraegy.serializeUser(function (user, done) {
-  done(null, user.id);
+passport.serializeUser(function (user, done) {
+  return done(null, user.id);
 });
 
-// deserializing the user from the key in the cookie
-LocalStraegy.deserializeUser(function (id, done) {
+passport.deserializeUser(function (id, done) {
   User.findById(id)
     .then((user) => {
       return done(null, user);
     })
-    .catch((err) => {
-      console.log("error in finding user --> passport");
-      return done(err);
+    .catch((e) => {
+      return done(e);
     });
 });
+
+//check the user is authenticated
+passport.checkAthentication = function (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+
+  return res.redirect("/user/sign-in");
+};
+
+passport.setAuthenticatedUser = function (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
+  }
+
+  return next();
+};
+
+module.exports = passport;
