@@ -17,6 +17,6 @@ router.post(
   }),
   userController.createSession
 );
-router.get("/profile/delete-session", userController.signOut);
+router.get("/sign-out", userController.distroySession);
 
 module.exports = router;
