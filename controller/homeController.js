@@ -18,6 +18,7 @@ module.exports.home = function (req, res) {
   postSchema
     .find({})
     .populate("user")
+
     .then((posts) => {
       return res.render("home", {
         posts: posts,
