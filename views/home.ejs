@@ -2,6 +2,7 @@
 
 <section id="feed-posts">
   <h4>posts</h4>
+  <% if(locals.user) { %>
   <form action="/post/create" id="new-posts-form" method="post">
     <textarea
       name="content"
@@ -11,4 +12,17 @@
     ></textarea>
     <input type="submit" value="post" />
   </form>
+  <% } %>
+
+  <ul>
+    <% for(data of posts) { %>
+    <li>
+      <p>
+        <%= data.content %> <br />
+        <small><%= data.user.name %></small>
+      </p>
+    </li>
+
+    <% } %>
+  </ul>
 </section>
