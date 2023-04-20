@@ -123,3 +123,18 @@ module.exports.distroySession = function (req, res) {
     return res.redirect("/");
   });
 };
+
+module.exports.update = function (req, res) {
+  if (req.user.id == req.params.id) {
+    User.findByIdAndUpdate(req.params.id, req.body)
+      .then((user) => {
+        return res.redirect("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        return res.redirect("back");
+      });
+  } else {
+    return res.status(401).send("Unaouthorized!");
+  }
+};
