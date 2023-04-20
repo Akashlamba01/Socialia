@@ -20,21 +20,21 @@ const User = require("../models/user");
 //   }
 // };
 
-module.exports.profile = function (req, res) {
-  User.findById(req.params.id)
-    .then((user) => {
-      return res.render("user_profile", {
-        title: "User Profile",
-        profile_user: user,
-      });
-    })
-    .catch((e) => {
-      console.log(e);
-      return res.redirect("back");
+//profile of user
+module.exports.profile = async function (req, res) {
+  try {
+    let user = await User.findById(req.params.id);
+    return res.render("user_profile", {
+      title: "User Profile",
+      profile_user: user,
     });
+  } catch (e) {
+    console.log(e);
+    return res.redirect("back");
+  }
 };
 
-// retder sign in page
+// render sign in page
 module.exports.signUp = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/user/profile");
@@ -45,7 +45,7 @@ module.exports.signUp = function (req, res) {
   });
 };
 
-// retder sign in page
+// render sign in page
 module.exports.SignIn = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/user/profile");
@@ -56,34 +56,58 @@ module.exports.SignIn = function (req, res) {
   });
 };
 
-//get  the sign up data
-module.exports.create = function (req, res) {
-  if (req.body.password != req.body.c_password) {
-    console.log("password and confirm password dose not match");
-    return res.redirect("back");
-  }
+//get the sign up data
+// module.exports.create = function (req, res) {
+//   if (req.body.password != req.body.c_password) {
+//     console.log("password and confirm password dose not match");
+//     return res.redirect("back");
+//   }
 
-  User.findOne({ email: req.body.email })
-    .then((user) => {
-      if (!user) {
-        User.create(req.body)
-          .then((data) => {
-            console.log("data", data);
-            return res.redirect("/user/sign-in");
-          })
-          .catch((err) => {
-            console.log("err form creating side in sign up", err);
-            return;
-          });
-      } else {
-        console.log("this email aleady exists: ", user);
-        return res.redirect("back");
-      }
-    })
-    .catch((err) => {
-      console.log("err form finding side in sign up", err);
-      return;
-    });
+//   User.findOne({ email: req.body.email })
+//     .then((user) => {
+//       if (!user) {
+//         User.create(req.body)
+//           .then((data) => {
+//             console.log("data", data);
+//             return res.redirect("/user/sign-in");
+//           })
+//           .catch((err) => {
+//             console.log("err form creating side in sign up", err);
+//             return;
+//           });
+//       } else {
+//         console.log("this email aleady exists: ", user);
+//         return res.redirect("back");
+//       }
+//     })
+//     .catch((err) => {
+//       console.log("err form finding side in sign up", err);
+//       return;
+//     });
+// };
+
+//get the sign up data using async await
+module.exports.create = async function (req, res) {
+  try {
+    if (req.body.password != req.body.c_password) {
+      console.log("password and confirm password dose not match");
+      return res.redirect("back");
+    }
+
+    let user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+      let userData = await User.create(req.body);
+      console.log("data", userData);
+      return res.redirect("/user/sign-in");
+    }
+
+    console.log("this email aleady exists: ", user);
+    return res.redirect("back");
+  } catch (err) {
+    console.log("err form finding side in sign up", err);
+    return;
+  }
 };
 
 //sign in and create seetion for user
@@ -124,17 +148,15 @@ module.exports.distroySession = function (req, res) {
   });
 };
 
-module.exports.update = function (req, res) {
-  if (req.user.id == req.params.id) {
-    User.findByIdAndUpdate(req.params.id, req.body)
-      .then((user) => {
-        return res.redirect("/");
-      })
-      .catch((e) => {
-        console.log(e);
-        return res.redirect("back");
-      });
-  } else {
+module.exports.update = async function (req, res) {
+  try {
+    if (req.user.id == req.params.id) {
+      await User.findByIdAndUpdate(req.params.id, req.body);
+      return res.redirect("/");
+    }
     return res.status(401).send("Unaouthorized!");
+  } catch (e) {
+    console.log(e);
+    return res.redirect("back");
   }
 };
