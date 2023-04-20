@@ -21,9 +21,17 @@ const User = require("../models/user");
 // };
 
 module.exports.profile = function (req, res) {
-  return res.render("user_profile", {
-    title: "User Profile",
-  });
+  User.findById(req.params.id)
+    .then((user) => {
+      return res.render("user_profile", {
+        title: "User Profile",
+        profile_user: user,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      return res.redirect("back");
+    });
 };
 
 // retder sign in page

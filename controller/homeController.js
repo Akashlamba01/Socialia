@@ -1,4 +1,5 @@
 const postSchema = require("../models/post");
+const User = require("../models/user");
 
 module.exports.home = function (req, res) {
   // console.log(req.cookies);
@@ -25,12 +26,16 @@ module.exports.home = function (req, res) {
       },
     })
     .then((posts) => {
-      return res.render("home", {
-        posts: posts,
-        title: "home side",
-      });
-    })
-    .catch((e) => {
-      console.log(e);
+      User.find()
+        .then((users) => {
+          return res.render("home", {
+            posts: posts,
+            title: "home side",
+            all_users: users,
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     });
 };
