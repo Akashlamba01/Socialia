@@ -18,7 +18,12 @@ module.exports.home = function (req, res) {
   postSchema
     .find({})
     .populate("user")
-
+    .populate({
+      path: "comments",
+      populate: {
+        path: "user",
+      },
+    })
     .then((posts) => {
       return res.render("home", {
         posts: posts,
