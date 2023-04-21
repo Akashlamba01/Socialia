@@ -50,12 +50,13 @@ module.exports.create = async function (req, res) {
       await post.comments.push(comment);
       await post.save();
 
+      req.flash("success", "commetn added!");
       return res.redirect("/");
     }
 
     return res.redirect("/");
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    req.flash("error", e);
     return res.redirect("/");
   }
 };
@@ -78,12 +79,14 @@ module.exports.delete = async function (req, res) {
         $pull: { comments: req.params.id },
       });
 
+      req.flash("error", "commetn deleted!");
+
       return res.redirect("/");
     }
 
     return res.redirect("back");
   } catch (e) {
-    console.log("err form delete comment side", e);
+    req.flash("error", e);
     return res.redirect("back");
   }
 };

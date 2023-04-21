@@ -9,6 +9,8 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongo");
 const sass = require("sass");
+const flash = require("connect-flash");
+const customMiddelware = require("./config/middelware");
 
 const app = express();
 const PORT = 8000;
@@ -53,6 +55,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customMiddelware.setFlash);
 
 app.use("/", require("./routes"));
 

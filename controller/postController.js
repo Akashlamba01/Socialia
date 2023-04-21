@@ -9,10 +9,12 @@ module.exports.postData = async function (req, res) {
       user: req.user._id,
     });
 
+    req.flash("success", "post uploaded successfuly!");
     console.log(post);
-    res.redirect("/");
+    return res.redirect("/");
   } catch (e) {
-    console.log("err from the creating post side", e);
+    req.flash("error", e);
+    return res.redirect("/");
   }
 };
 
@@ -58,10 +60,13 @@ module.exports.delete = async function (req, res) {
 
       let result = await CommentSchema.deleteMany({ post: req.params.id });
       console.log(result);
+
+      req.flash("success", "post deleted!");
       return res.redirect("back");
     }
     return res.redirect("back");
   } catch (e) {
-    console.log("error form delete side", e);
+    req.flash("error", e);
+    return res.redirect("/");
   }
 };

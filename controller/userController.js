@@ -136,6 +136,7 @@ module.exports.create = async function (req, res) {
 // };
 
 module.exports.createSession = function (req, res) {
+  req.flash("success", "loged in successfuly!");
   return res.redirect("/");
 };
 
@@ -144,6 +145,9 @@ module.exports.distroySession = function (req, res) {
     if (err) {
       return next(err);
     }
+
+    req.flash("success", "loged out successfuly!");
+
     return res.redirect("/");
   });
 };
