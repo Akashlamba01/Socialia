@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+header {
+  display: flex;
+  border: 2px solid gray;
+  justify-content: space-between;
+  height: 100px;
+  background-color: rgb(60, 60, 237);
+}
+
+#logo {
+  width: 30%;
+  padding-left: 26px;
+  font-size: 2rem;
+}
+
+#logo h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+#header-ul {
+  width: 30%;
+  display: flex;
+  margin-top: 24px;
+  justify-content: space-around;
+  /* border: 2px solid red; */
+}
+
+#header-ul li {
+  list-style: none;
+  /* border: 2px solid green; */
+}
+
+#header-ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}

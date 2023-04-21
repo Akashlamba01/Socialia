@@ -8,6 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongo");
+const sass = require("sass");
 
 const app = express();
 const PORT = 8000;
@@ -25,7 +26,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("assets"));
 
-//mongo store is used to store the session cookie in the db
 app.use(
   session({
     name: "majorProject2",

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "node-sass": "sass -w assets/sass:assets/css",
+    
     "nodemon": "nodemon index.js",
-    "dev": "npm-run-all --parallel node-sass nodemon",
+    "dev": "npm-run-all --parallel nodemon ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
