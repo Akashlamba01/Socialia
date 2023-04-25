@@ -1,8 +1,9 @@
 <h1>project2/ profile</h1>
 
 <div>
-  <% if(user.id == profile_user.id) { %>
+  <img src="<%= user.avatar %> " alt="<%= user.name %>" width="100" />
 
+  <% if(user.id == profile_user.id) { %>
   <form
     action="/user/update/<%=user.id%>"
     enctype="multipart/form-data"

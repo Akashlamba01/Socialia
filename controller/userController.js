@@ -175,7 +175,7 @@ module.exports.update = async function (req, res) {
     try {
       let user = await User.findById(req.params.id);
 
-      console.log(user);
+      // console.log(user);
       User.uploadAvatar(req, res, function (err) {
         if (err) {
           console.log(err);
@@ -189,10 +189,11 @@ module.exports.update = async function (req, res) {
         }
 
         user.save();
-        console.log(req.file);
+        // console.log(req.file);
       });
 
-      console.log("updated: ", user);
+      // console.log("updated: ", user);
+      req.flash("success", "User Updated!");
       return res.redirect("/");
     } catch (e) {
       console.log(e);

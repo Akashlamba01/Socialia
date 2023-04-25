@@ -27,6 +27,7 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("assets"));
+app.use("/upload", express.static(__dirname + "/upload"));
 
 app.use(
   session({
@@ -60,6 +61,9 @@ app.use(flash());
 app.use(customMiddelware.setFlash);
 
 app.use("/", require("./routes"));
+//for img part
+
+// console.log("jkljlkjl", express.static(__dirname + "/assets"));
 
 app.listen(PORT, () => {
   console.log(`server is running on the port: ${PORT}`);
