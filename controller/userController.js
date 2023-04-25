@@ -1,5 +1,19 @@
 const User = require("../models/user");
 
+// module.exports.home = function (req, res) {
+//   Todo.find({}).then((todo) => {
+//     return res
+//       .render("home", {
+//         title: "Todo app",
+//         to_do: todo,
+//       })
+//       .catch((e) => {
+//         console.log(e);
+//         return res.redirect("/");
+//       });
+//   });
+// };
+
 // retder profile page
 // module.exports.profile = function (req, res) {
 //   if (req.cookies.user_id) {
@@ -24,6 +38,10 @@ const User = require("../models/user");
 module.exports.profile = async function (req, res) {
   try {
     let user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.redirect("back");
+    }
     return res.render("user_profile", {
       title: "User Profile",
       profile_user: user,
@@ -153,14 +171,35 @@ module.exports.distroySession = function (req, res) {
 };
 
 module.exports.update = async function (req, res) {
-  try {
-    if (req.user.id == req.params.id) {
-      await User.findByIdAndUpdate(req.params.id, req.body);
+  if (req.user.id == req.params.id) {
+    try {
+      let user = await User.findById(req.params.id);
+
+      console.log(user);
+      User.uploadAvatar(req, res, function (err) {
+        if (err) {
+          console.log(err);
+        }
+
+        user.name = req.body.name;
+        user.email = req.body.email;
+
+        if (req.file) {
+          user.avatar = User.avatarPath + "/" + req.file.filename;
+        }
+
+        user.save();
+        console.log(req.file);
+      });
+
+      console.log("updated: ", user);
       return res.redirect("/");
+    } catch (e) {
+      console.log(e);
+      return res.redirect("back");
     }
-    return res.status(401).send("Unaouthorized!");
-  } catch (e) {
-    console.log(e);
-    return res.redirect("back");
   }
+
+  req.flash("error", "Unautorized!");
+  return res.status(401).send("Unautorized");
 };

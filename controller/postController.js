@@ -9,6 +9,15 @@ module.exports.postData = async function (req, res) {
       user: req.user._id,
     });
 
+    // if (req.xhr) {
+    //   return res.status(200).json({
+    //     data: {
+    //       post: post,
+    //     },
+    //     message: "post success!",
+    //   });
+    // }
+
     req.flash("success", "post uploaded successfuly!");
     console.log(post);
     return res.redirect("/");

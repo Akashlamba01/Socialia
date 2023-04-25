@@ -21,8 +21,8 @@ app.use(cookieParser());
 
 //layouts set
 app.use(expressLayouts);
-app.set("layout extractStyles", true);
-app.set("layout extractScripts", true);
+// app.set("layout extractStyles", true);
+// app.set("layout extractScripts", true);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -35,7 +35,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 100 * 60 * 100,
+      maxAge: 100 * 60 * 1000,
     },
     store: MongoStore.create(
       {
