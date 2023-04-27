@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const path = require("path");
+const fs = require("fs");
 
 // module.exports.home = function (req, res) {
 //   Todo.find({}).then((todo) => {
@@ -176,7 +178,7 @@ module.exports.update = async function (req, res) {
       let user = await User.findById(req.params.id);
 
       // console.log(user);
-      User.uploadAvatar(req, res, function (err) {
+      User.uploadAvatar(req, res, async function (err) {
         if (err) {
           console.log(err);
         }
@@ -185,6 +187,14 @@ module.exports.update = async function (req, res) {
         user.email = req.body.email;
 
         if (req.file) {
+          if (user.avatar) {
+            let avatarPrePath = path.join(__dirname, "..", user.avatar);
+            await fs.unlink(avatarPrePath, (err) => {
+              if (err) throw err;
+              console.log("filepath: ", avatarPrePath);
+            });
+          }
+
           user.avatar = User.avatarPath + "/" + req.file.filename;
         }
 
