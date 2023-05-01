@@ -57,7 +57,7 @@ module.exports.profile = async function (req, res) {
 // render sign in page
 module.exports.signUp = function (req, res) {
   if (req.isAuthenticated()) {
-    return res.redirect("/user/profile");
+    return res.redirect("/users/profile");
   }
 
   return res.render("user_sign_up", {
@@ -68,7 +68,7 @@ module.exports.signUp = function (req, res) {
 // render sign in page
 module.exports.SignIn = function (req, res) {
   if (req.isAuthenticated()) {
-    return res.redirect("/user/profile");
+    return res.redirect("/users/profile");
   }
 
   return res.render("user_sign_in", {
@@ -119,7 +119,7 @@ module.exports.create = async function (req, res) {
     if (!user) {
       let userData = await User.create(req.body);
       console.log("data", userData);
-      return res.redirect("/user/sign-in");
+      return res.redirect("/users/sign-in");
     }
 
     console.log("this email aleady exists: ", user);
