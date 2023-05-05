@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const db = require("./config/db");
+require("dotenv").config();
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 //used for session cookie

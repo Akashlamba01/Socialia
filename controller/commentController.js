@@ -1,6 +1,7 @@
 const { compile } = require("ejs");
 const Comment = require("../models/comment");
 const Post = require("../models/post");
+const commentMailer = require("../mailres/comments");
 
 // create comment
 // module.exports.create = function (req, res) {
@@ -35,6 +36,7 @@ const Post = require("../models/post");
 
 //create comment using async await
 module.exports.create = async function (req, res) {
+  console.log("bahi kuch too aja");
   try {
     let post = await Post.findById(req.body.post);
 
@@ -46,9 +48,13 @@ module.exports.create = async function (req, res) {
         user: req.user._id,
       });
 
-      console.log("content", comment);
+      // console.log("content", comment);
       await post.comments.push(comment);
       await post.save();
+
+      comment = await comment.populate("user", "name email");
+
+      await commentMailer.newComment(comment);
 
       req.flash("success", "commetn added!");
       return res.redirect("/");
