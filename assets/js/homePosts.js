@@ -30,12 +30,19 @@
         <li id="post-${post._id}">
             <p>
                 <small>
-                    <a class="delete-post-button" href="/post/destroy/${post.id}">x</a>
+                    <a class="delete-post-button" data-likes="0" href="/post/destroy/${post.id}">x</a>
                 </small>
 
                 ${post.content}
                 <br />
                 <small> ${post.user.name} </small>
+                <br />
+                <small> 
+                  <a href="/likes/toggle/${user._id}&type=Post">
+                    0 Likes
+                  </a>
+                </small>
+
             </p>
     
             <div class="post-comments">

@@ -1,5 +1,6 @@
 const PostSchema = require("../models/post");
 const CommentSchema = require("../models/comment");
+const likeSchem = require("../models/like");
 
 //post for user
 module.exports.postData = async function (req, res) {
@@ -67,8 +68,15 @@ module.exports.delete = async function (req, res) {
       console.log("post id: ", req.params.id);
       await post.deleteOne({ _id: post._id });
 
+      await likeSchem.deleteMany({ likeable: post, onModel: "Post" });
+      await likeSchem.deleteMany({ _id: { $in: post.comments } });
+
       let result = await CommentSchema.deleteMany({ post: req.params.id });
       console.log(result);
+
+      // let post = post.remove();
+      let deletePost = await PostSchema.findOneAndDelete({ _id: post.id });
+      console.log(deletePost);
 
       req.flash("success", "post deleted!");
       return res.redirect("back");

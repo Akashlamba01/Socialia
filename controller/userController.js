@@ -110,7 +110,8 @@ module.exports.SignIn = function (req, res) {
 module.exports.create = async function (req, res) {
   try {
     if (req.body.password != req.body.c_password) {
-      console.log("password and confirm password dose not match");
+      req.flash("error", "password and confirm password dose not match");
+      // console.log("password and confirm password dose not match");
       return res.redirect("back");
     }
 
@@ -118,11 +119,13 @@ module.exports.create = async function (req, res) {
 
     if (!user) {
       let userData = await User.create(req.body);
+      req.flash("success", "User Created!");
       console.log("data", userData);
       return res.redirect("/users/sign-in");
     }
 
     console.log("this email aleady exists: ", user);
+    req.flash("error", "this email has aleady exists");
     return res.redirect("back");
   } catch (err) {
     console.log("err form finding side in sign up", err);

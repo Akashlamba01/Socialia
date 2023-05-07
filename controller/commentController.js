@@ -1,6 +1,7 @@
 const { compile } = require("ejs");
 const Comment = require("../models/comment");
 const Post = require("../models/post");
+const Like = require("../models/like");
 const commentMailer = require("../mailres/comments");
 
 // create comment
@@ -73,13 +74,16 @@ module.exports.delete = async function (req, res) {
 
   try {
     // console.log("req.param.id: ", req.user.id);
+
     let comment = await Comment.findById(req.params.id);
     console.log("comment.user", comment);
 
     if (comment.user == req.user.id) {
       let postId = comment.post;
 
-      await comment.deleteOne({ _id: req.params.id });
+      await Like.deleteMany({ likeable: comment, onModel: "Comment" });
+
+      await Comment.deleteOne({ _id: req.params.id });
 
       await Post.findByIdAndUpdate(postId, {
         $pull: { comments: req.params.id },
