@@ -15,22 +15,22 @@ exports.likeToggle = async (req, res) => {
 
     // console.log(likeable);
 
-    let isExists = await Like.findOne({
+    let isLike = await Like.findOne({
       likeable: req.query.id,
       onModel: req.query.type,
       user: req.user._id,
     });
 
-    // console.log("isExists: ", isExists);
+    // console.log("isLike: ", isLike);
     // console.log("userId: ", req.user.id);
     // console.log("likeable: ", req.query.id);
     // console.log("onModel: ", req.query.type);
 
-    if (isExists) {
-      likeable.likes.pull(isExists._id);
+    if (isLike) {
+      likeable.likes.pull(isLike._id);
       likeable.save();
 
-      isExists.deleteOne();
+      isLike.deleteOne();
       deleteLike = true;
     } else {
       let newLike = await Like.create({

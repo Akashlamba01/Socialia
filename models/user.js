@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
     },
+    firends: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Friendship",
+      },
+    ],
   },
   {
     timestamps: true,
@@ -41,5 +47,5 @@ const storage = multer.diskStorage({
 userSchema.statics.uploadAvatar = multer({ storage: storage }).single("avatar");
 userSchema.statics.avatarPath = AVATAR_PATH;
 
-const User = new mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
