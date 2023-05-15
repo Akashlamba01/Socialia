@@ -1,0 +1,81 @@
+#user-chat-box {
+  width: 220px;
+  height: 300px;
+  border: 2px solid rgb(219, 219, 210);
+  margin: 0;
+  background-color: rgb(216, 217, 216);
+}
+
+/* message container //////////////////// */
+.chat-message-list {
+  background-color: rgb(216, 217, 216);
+  height: 235px;
+  overflow-y: auto;
+}
+
+.chat-message-list::-webkit-scrollbar {
+  display: none;
+}
+
+ul {
+  /* margin-left: -30px; */
+  padding: 0 8px;
+}
+
+/* message list////////////////////// */
+.chat-message-list li {
+  list-style: none;
+  width: 100%;
+  margin: 4px 0;
+}
+
+/* sendre message////////////////////////////// */
+.sender {
+  /* margin-left: -200px; */
+  /* margin-left: 40px; */
+  width: 100%;
+}
+.sender span {
+  border-radius: 0 6px 6px 0;
+  padding: 4px 6px;
+  display: flex;
+  width: 60%;
+  background-color: lightblue;
+  /* width: 100%; */
+  /* padding: ; */
+}
+
+/* my message ////////////////////////////////// */
+.my-message {
+  margin-left: 40px;
+  width: 100%;
+}
+.my-message span {
+  background-color: lightsteelblue;
+  width: 60%;
+  margin-left: 70px;
+  display: flex;
+  border-radius: 6px 0px 0 6px;
+  padding: 4px 6px;
+  /* width: 100%; */
+}
+
+/* chat form ////////////////////////////////// */
+.form-chat-box {
+  /* border: 2px solid red; */
+  display: flex;
+  height: 2rem;
+}
+
+.form-chat-box input {
+  background-color: lightgray;
+  color: black;
+  font-weight: bold;
+  padding-left: 5px;
+}
+#chat-message {
+  width: 75%;
+}
+#send-message {
+  width: 25%;
+}

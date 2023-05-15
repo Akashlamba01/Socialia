@@ -17,6 +17,16 @@ const customMiddelware = require("./config/middelware");
 const app = express();
 const PORT = 8000;
 
+const server = require("http").Server(app);
+const chatSocket = require("./config/chatSocket").chatSocket(server);
+
+server.prependListener("request", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+});
+// const io =  require('socket.io')(server)
+server.listen(5000);
+console.log("caht srver is runnig ");
+
 // app.use(express.static("./assets"));
 app.use(express.urlencoded());
 app.use(cookieParser());
