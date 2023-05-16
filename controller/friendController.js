@@ -3,24 +3,31 @@ const Friendship = require("../models/friendship");
 
 module.exports.addFriend = async (req, res) => {
   try {
-    let deleteFriend = false;
-
-    let friendship = await User.findById(req.query.id).populate("friends");
-
-    // let isFriend = await Friendship.findOne({
-    //   from_user:
-    // });
-
+    // let friend = false;
     let user = await User.findById(req.user._id);
 
-    // if(user.friends)
+    let isFriend = await Friendship.findOne({ to_user: req.query.id });
 
-    // if (!firends) {
-    //   return res.status(402).json({
-    //     message: "User not found!",
-    //   });
-    // }
+    if (isFriend) {
+      isFriend.deleteOne();
+      console.log(req.query.id);
+      user.friends.pull(req.query.id);
+    } else {
+      let newFriend = await Friendship.create({
+        from_user: req.user._id,
+        to_user: req.query.id,
+      });
+
+      user.friends.push(newFriend.to_user);
+      user.save();
+    }
+
+    return res.status(200).json({
+      data: user,
+      message: "success",
+    });
   } catch (e) {
+    console.log(e);
     return res.status(500).json({
       message: "internal server err",
     });

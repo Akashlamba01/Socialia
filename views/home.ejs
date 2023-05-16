@@ -29,12 +29,15 @@
 
     <P>
       <a href="/users/profile/<%= u.id %>"> <%= u.name %> </a>
+      <% if(locals.user) { %>
+      <a href="/friends/toggle/?id=<%= u.id%>"><button>add friend</button></a>
+      <% } %>
     </P>
 
     <% } %>
   </section>
+  <%- include('_chatBox') %>
 </div>
-<%- include('_chatBox') %>
 
 <script src="./js/homePosts.js"></script>
 <script src="./js/toggleLike.js"></script>
