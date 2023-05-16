@@ -26,5 +26,47 @@ class ChatEngine {
         console.log("a user joined", data);
       });
     });
+
+    $("#send-message").click(() => {
+      let msg = $("#chat-message").val();
+
+      if (msg != "") {
+        self.socket.emit("send_message", {
+          message: msg,
+          user_email: self.userEmail,
+          chatroom: "facebook",
+        });
+      }
+    });
+
+    self.socket.on("receive_message", (data) => {
+      console.log("message receive: ", data.message);
+
+      let newMessage = $("<li>");
+
+      let messageType = "sender";
+
+      if (data.user_email == self.userEmail) {
+        messageType = "my-message";
+      }
+
+      newMessage.append(
+        $("<span>", {
+          html: data.message,
+        })
+      );
+
+      newMessage.append(
+        $("<sub>", {
+          html: data.user_email,
+        })
+      );
+
+      newMessage.addClass(messageType);
+
+      $("#chat-message-list").append(newMessage);
+
+      $("#chat-message").val("");
+    });
   }
 }

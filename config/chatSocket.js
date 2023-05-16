@@ -1,5 +1,5 @@
-module.exports.chatSocket = function (socketServer) {
-  let io = require("socket.io")(socketServer);
+module.exports.chatSocket = function (server) {
+  let io = require("socket.io")(server);
 
   io.sockets.on("connection", (socket) => {
     // console.log(socket);
@@ -16,6 +16,10 @@ module.exports.chatSocket = function (socketServer) {
       socket.join(data.chatroom);
 
       io.in(data.chatroom).emit("user_joined", data);
+    });
+
+    socket.on("send_message", (data) => {
+      io.in(data.chatroom).emit("receive_message", data);
     });
   });
 };

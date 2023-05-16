@@ -7,13 +7,13 @@
 }
 
 /* message container //////////////////// */
-.chat-message-list {
+#chat-message-list {
   background-color: rgb(216, 217, 216);
   height: 235px;
   overflow-y: auto;
 }
 
-.chat-message-list::-webkit-scrollbar {
+#chat-message-list::-webkit-scrollbar {
   display: none;
 }
 
@@ -23,10 +23,14 @@ ul {
 }
 
 /* message list////////////////////// */
-.chat-message-list li {
+#chat-message-list li {
   list-style: none;
   width: 100%;
   margin: 4px 0;
+}
+
+.my-message sub {
+  float: right;
 }
 
 /* sendre message////////////////////////////// */
