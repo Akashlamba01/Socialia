@@ -10,6 +10,11 @@ const friendSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    friendRequest: {
+      type: String,
+      enum: ["pending", "accept"],
+      default: "pending",
+    },
   },
   {
     timestamps: true,

@@ -3,6 +3,6 @@ const router = express.Router();
 
 const friendController = require("../controller/friendController");
 
-router.get("/toggle", friendController.addFriend);
+router.get("/toggle", friendController.addFriends);
 
 module.exports = router;
