@@ -1,0 +1,31 @@
+/* Navbar styles */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+nav {
+  background-color: #333;
+  height: 7vh;
+}
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}

@@ -36,6 +36,28 @@ const fs = require("fs");
 //   }
 // };
 
+module.exports.getUser = async function (req, res) {
+  try {
+    let user = await User.find({ name: req.query.name });
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User Not Found!",
+      });
+    }
+
+    return res.status(200).json({
+      message: "User get succesfuly",
+      data: user,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).json({
+      message: "Internal Server Error!",
+    });
+  }
+};
+
 //profile of user
 module.exports.profile = async function (req, res) {
   try {
