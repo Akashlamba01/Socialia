@@ -24,6 +24,7 @@ Text color: #333333 (Dark Gray)
   height: 93vh;
   background-color: #00000047;
   margin: auto;
+  /* margin-top: -1px; */
   width: 20%;
 }
 

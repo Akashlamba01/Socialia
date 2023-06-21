@@ -1,12 +1,21 @@
 /* Login section styles */
 .login-section {
-  width: 40%;
+  width: 80%;
   margin: 20px auto;
   /* height: 10vh; */
   padding: 20px;
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.heading {
+  margin-top: 20px;
+  font-family: "Comme";
+  /* font-weight: 100; */
+  padding-bottom: 2px;
+  color: rgb(117 18 58);
+  font-weight: bold;
 }
 
 h2,
@@ -33,7 +42,9 @@ input {
 }
 
 button {
-  background-color: #4caf50;
+  /* background-color: #4caf50; */
+  /* background-color: rgb(142, 29, 142); */
+  background-color: rgb(117 18 58);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
