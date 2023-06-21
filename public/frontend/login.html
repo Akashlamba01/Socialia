@@ -1,32 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
 
-    <link rel="stylesheet" href="./style/login.css" />
+    <title>Socialia login</title>
+
+    <link rel="stylesheet" type="text/css" href="./style/login.css" />
+    <link rel="stylesheet" href="./css/login-signup.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comme&family=Edu+NSW+ACT+Foundation:wght@500&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/8ff5f3e8e1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $("#nav-bar").load("_header.html");
+      });
+    </script>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-          <li class="login"><a href="./login.html">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section id="login-form">
-      <form>
+    <div class="heading">
+      <!-- <h2>Connectopia</h2>
+      <h2>SocialSphere</h2> -->
+      <h2>Socialia</h2>
+    </div>
+    <div class="login-section">
+      <form id="login-form">
         <input type="text" placeholder="Email or Phone" required />
         <input type="password" placeholder="Password" required />
-        <br />
-        <input type="submit" value="login" />
+        <button type="submit">Log In</button>
       </form>
-    </section>
+      <br />
+      <p>
+        <a href="">Forgotten Password?</a>
+      </p>
+
+      <br />
+      <hr />
+      <br />
+      <p>oR</p>
+      <br />
+
+      <a href="./signup.html">
+        <button>Create a new account !</button>
+      </a>
+
+      <a href="#">
+        <button class="google-login-btn">
+          <i class="fa-brands fa-google"></i> Login with google
+        </button>
+      </a>
+    </div>
+
+    <script>
+      let navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
   </body>
 </html>
