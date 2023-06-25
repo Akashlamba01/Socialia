@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="./style/index.css" />
+    <title>post</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +12,8 @@
       rel="stylesheet"
     />
 
-    <title>Socialia</title>
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/post.css" />
 
     <script
       src="https://kit.fontawesome.com/8ff5f3e8e1.js"
@@ -21,39 +21,12 @@
     ></script>
   </head>
   <body>
-    <header>
-      <div class="heading-section">
-        <h2 class="heading">Socialia</h2>
-        <!-- <a href=""><i class="fa-solid fa-magnifying-glass"></i></a> -->
-      </div>
-
-      <nav>
-        <ul>
-          <li>
-            <a href="./index.html"
-              ><i class="fa-solid fa-house activate"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-user-group"></i></a>
-          </li>
-          <li>
-            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-message"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-bell"></i></a>
-          </li>
-          <li class="login">
-            <a href="./login.html"><i class="fa-solid fa-user"></i></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- <hr /> -->
+    <div class="post-holder">
+      <a href="./index.html">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+      <p>Akash's post</p>
+    </div>
 
     <section id="main-container">
       <div class="timeline-post">
@@ -76,7 +49,7 @@
               <i class="fa-solid fa-ellipsis"></i>
             </button> -->
 
-            <button><a href="./post.html"> view </a></button>
+            <button>view</button>
             <!-- <a href=""> </a> -->
             <!-- <input type="text" class="fa-solid fa-ellipsis" /> -->
           </div>
@@ -89,9 +62,7 @@
           veritatis inventore molestiae rerum, aliquid ipsam ducimus.
         </div>
         <div class="post-img">
-          <a href="./post.html">
-            <img src="../image/profile/proImg.jpg" alt="" />
-          </a>
+          <img src="../image/profile/proImg.jpg" alt="" />
         </div>
         <div class="like-comment">
           <div class="like-comment-box">
@@ -102,6 +73,21 @@
           </div>
         </div>
       </div>
+
+      <!-- all comments  -->
+      <div class="comment-box"></div>
     </section>
+
+    <!-- create comment -->
+    <div class="comment-container">
+      <div class="comment-input-box">
+        <form action="">
+          <input type="text" placeholder="Write a comment..." required />
+          <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

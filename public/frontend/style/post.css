@@ -1,0 +1,73 @@
+.post-holder {
+  height: 30px;
+  padding-top: 10px;
+  padding-left: 5px;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid rgb(188, 187, 187);
+}
+.post-holder a i {
+  color: rgb(117 18 58);
+  /* font-size: 16px; */
+}
+
+.post-holder p {
+  text-align: center;
+  margin-top: -18px;
+  font-size: 16px;
+  color: rgb(117 18 58);
+  font-weight: bold;
+  font-family: "Comme";
+}
+
+#main-container {
+  padding: 40px 0;
+  padding-bottom: 50px;
+}
+
+#main-container .timeline-post {
+  border: none;
+}
+
+/* comment input section */
+.comment-container {
+  border-top: 1px solid gray;
+  height: 36px;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  bottom: 0;
+  padding: 8px 0;
+  text-align: center;
+  /* display: flex; */
+  /* margin-left: -10px; */
+  /* border: 2px solid green; */
+}
+
+.comment-container input {
+  border-radius: 20px;
+  width: 80%;
+  height: 35px;
+  padding-left: 12px;
+  font-size: 16px;
+  border: 1px solid gray;
+}
+
+.comment-container button {
+  /* margin-top: 15px; */
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  color: rgb(117 18 58);
+  height: 30px;
+  height: 100%;
+  /* margin-top: 5px; */
+  /* padding-top: 10px; */
+  /* width: 30px; */
+  /* border: 2px solid yellow; */
+  /* bottom: 0; */
+  /* padding-top: 15px; */
+  /* margin-left: -60px; */
+  /* margin-top: 5px; */
+}

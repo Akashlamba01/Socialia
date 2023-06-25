@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 header {
   width: 90%;
   margin: auto;
@@ -55,12 +60,126 @@ header nav ul li i {
 }
 
 #main-container {
-  border: 2px solid black;
-  height: 100vh;
+  border-top: 2px solid rgb(156, 156, 156);
+  /* height: 100vh; */
+  width: 100%;
 }
 
-#main-container .timeline {
-  border: 2px solid green;
-  height: 30px;
+#main-container .timeline-post {
+  /* border: 2px solid green; */
+  border-bottom: 3px solid rgb(156, 156, 156);
+  /* height: 50px; */
   /* width: 90%; */
+  /* padding: 0 10px; */
+  margin: auto;
+  /* padding: 16px 0; */
+  margin-top: 10px;
+  /* width: 90%; */
+}
+
+#main-container .timeline-post .timeline-details {
+  /* display: flex; */
+  justify-content: space-between;
+  border: 2px solid red;
+}
+
+.post-profile-details {
+  padding: 0 15px;
+  display: flex;
+  /* border: 2px solid red; */
+
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.post-user-profile {
+  display: flex;
+  /* border: 2px solid red; */
+  width: 80%;
+}
+
+.post-content {
+  padding: 0 10px;
+}
+
+.post-profile-details .post-profile-img {
+  width: 60px;
+  height: 60px;
+}
+
+.post-profile-img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.post-profile-details .post-profile-name {
+  width: 60%;
+  /* border: 2px solid yellow; */
+  margin-left: 5px;
+  margin-top: 12px;
+  padding-left: 5px;
+}
+
+.post-profile-name h3 {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Comme";
+}
+
+.post-profile-name span {
+  /* c; */
+  font-size: 12px;
+  color: rgb(88, 88, 88);
+}
+
+.post-profile-details .post-togle-btn {
+  text-align: right;
+  /* border: 2px solid orange; */
+  margin-right: 0;
+  height: 20px;
+  margin-top: 3px;
+  /* align-items: right; */
+  /* float: right; */
+}
+
+.post-togle-btn button {
+  background-color: transparent;
+  border: none;
+}
+
+.post-profile-details .post-img {
+  width: 100%;
+}
+
+.post-img img {
+  margin: 8px 0 3px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.timeline-post .like-comment {
+  /* border: 2px solid blue; */
+  display: flex;
+  justify-content: space-around;
+  /* height: 30px; */
+  width: 100%;
+}
+
+.like-comment .like-comment-box {
+  /* height:; */
+  background-color: rgb(211, 211, 211);
+  text-align: center;
+  /* border: 2px solid green; */
+  /* margin: 5px; */
+  margin-bottom: 10px;
+  height: 32px;
+  padding-top: 8px;
+  width: 150px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.like-comment-box i {
+  color: rgb(117 18 58);
 }
