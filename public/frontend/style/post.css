@@ -30,6 +30,53 @@
   border: none;
 }
 
+.comment-box {
+  /* border: 2px solid green; */
+  padding: 10px;
+  /* margin: 10px 0; */
+}
+
+.comment-box .comment-user-profile {
+  display: flex;
+}
+
+.comment-box .comment-user-profile .comment-profile-img {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-box .comment-user-profile .comment-profile-img img {
+  /* width: 100%; */
+  width: 50px;
+  border-radius: 50%;
+}
+
+.comment-box .comment-user-profile .comment-profile-content {
+  /* width: 60%; */
+  /* background-color: gray; */
+  /* border: 2px solid yellow; */
+  background-color: rgb(224, 224, 224);
+  margin: 0 5px;
+  padding: 8px 10px;
+  border-radius: 17px;
+}
+
+.likes-btn {
+  margin-left: 14px;
+}
+
+.likes-btn button {
+  background-color: transparent;
+  border: none;
+}
+
+.likes-btn button a {
+  color: blue;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 /* comment input section */
 .comment-container {
   border-top: 1px solid gray;

@@ -41,6 +41,11 @@ input {
   padding: 12px 20px;
   margin: 8px auto;
   box-sizing: border-box;
+  font-size: 16px;
+}
+
+input[type="date"] {
+  margin-top: 9px;
 }
 
 /* form buttonnnnnnnnnnn/////////// */
