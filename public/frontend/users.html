@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/users.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comme&family=Edu+NSW+ACT+Foundation:wght@500&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Socialia</title>
+
+    <script
+      src="https://kit.fontawesome.com/8ff5f3e8e1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="./index.html"><i class="fa-solid fa-house"></i> </a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-user-group activate"></i></a>
+          </li>
+          <li>
+            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-message"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-bell"></i></a>
+          </li>
+          <li class="login">
+            <a href="./login.html"><i class="fa-solid fa-user"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="friends-container">
+      <div class="friends-heading">
+        <h1>Friends</h1>
+        <div>
+          <i class="fa-solid fa-search"></i>
+        </div>
+      </div>
+
+      <div class="friends-request">
+        <!-- request heading  -->
+        <div class="request-heading">
+          <h3>Friend requests</h3>
+          <a href="">See All</a>
+        </div>
+
+        <!-- request -->
+        <div class="users-box">
+          <div class="users-img">
+            <img src="../image//profile/proImg.jpg" alt="" />
+          </div>
+
+          <div class="users-name">
+            <h3>Akash Lamba</h3>
+            <div class="confirm-add-btns-box">
+              <a href="">
+                <div class="confirm-add-btns" id="friend-confirm-btn">
+                  Confirm
+                </div>
+              </a>
+
+              <a href="">
+                <div class="confirm-add-btns" id="friend-delete">Delete</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+nav {
+  width: 90%;
+  margin: auto;
+}
+
+header {
+  /* border-bottom: 2px solid green; */
+  border-bottom: 1px solid rgb(193, 193, 193);
+  width: 100%;
+  padding: 4px 0;
+}
+
+/* #friends-container {} */
+
+.friends-heading {
+  display: flex;
+  /* width: 90%; */
+  margin: 10px auto 0;
+  justify-content: space-between;
+  padding: 0 5%;
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+/* .friends-heading h1 {
+} */
+
+.friends-request {
+  /* border-top: 1px solid rgb(146, 146, 146); */
+  /* margin-top: 4px; */
+  padding: 10px 5%;
+  /* width: 90%; */
+  margin: auto;
+  /* padding-bottom: 10px; */
+}
+
+.friends-request .request-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.friends-request .request-heading a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.users-box {
+  margin-top: 6px;
+  padding-top: 4px;
+  /* border-top: 1px solid rgb(146, 146, 146); */
+  display: flex;
+}
+
+.users-box .users-img {
+  width: 90px;
+  height: 90px;
+}
+
+.users-img img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.users-box .users-name {
+  border: 2px solid red;
+  padding-left: 8px;
+}
+
+.users-name .confirm-add-btns-box {
+  display: flex;
+}
+
+.confirm-add-btns-box .confirm-add-btns {
+  border: 2px solid rgb(34, 0, 255);
+  width: 90px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+/* .users-name .confirm-add-btns; */

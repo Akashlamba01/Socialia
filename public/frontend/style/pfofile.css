@@ -1,0 +1,44 @@
+.post-holder {
+  top: 0;
+  position: fixed;
+}
+
+#profile-container {
+  /* height: 200px; */
+  margin-top: 41px;
+  /* border: 2px solid green; */
+}
+
+.profile-cover-img {
+  height: 150px;
+  /* border: 2px solid red; */
+  /* border-bottom: 2px solid yellow; */
+  /* background-color: red; */
+  background-image: url("../../image/profile/proImg.jpg");
+  background-position: top;
+  /* overflow: hidden; */
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0%, 100% 68%, 0 100%);
+}
+
+.profile-img {
+  display: flex;
+  /* width: 100px; */
+  margin-top: -70px;
+  border-bottom: 2px solid gray;
+  padding-left: 16px;
+}
+
+.profile-img img {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+.profile-img h3 {
+  margin-top: 55px;
+  /* width: 100%; */
+  /* border: 2px solid yellow; */
+}
