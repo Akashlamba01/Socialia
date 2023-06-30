@@ -225,3 +225,12 @@ header nav ul li i {
 .like-comment-box i {
   color: rgb(117 18 58);
 }
+
+@media screen and (min-width: 460px) {
+  body {
+    width: 460px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+}
