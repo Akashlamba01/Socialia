@@ -6,11 +6,6 @@
 /* body {
 } */
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 header {
   width: 90%;
   margin: auto;
@@ -21,9 +16,9 @@ header {
 .heading-section {
   display: flex;
   justify-content: space-between;
-  /* margin: 5px; */
   margin-bottom: 5px;
 
+  /* margin: 5px; */
   /* border: 1px solid black; */
 }
 
