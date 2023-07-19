@@ -1,4 +1,5 @@
 # Socialia
+### Note:- FE part of the app 70% completed, So Working on it. 
 
 ## Introduction
 
