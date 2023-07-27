@@ -1,5 +1,5 @@
 # Socialia
-### Note:- FE part of the app 70% completed, So Working on it. demo part of FE`https://gkqrfc.csb.app`
+### Note:- FE part of the app 70% completed, So Working on it. demo part of FE https://gkqrfc.csb.app
 
 ## Introduction
 
